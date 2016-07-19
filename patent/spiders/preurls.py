@@ -19,7 +19,7 @@ class PreUrls(object):
         :return:
         """
         params = {}
-        total_pages = 1
+        total_items = 1
         start_pages = start_pages or 1
 
         default_page = 'page_now'
@@ -32,14 +32,14 @@ class PreUrls(object):
             else:
                 params[key] = value
 
-            if value.isdigit() and int(value) > total_pages:
-                total_pages = int(value)
+            if value.isdigit() and int(value) > total_items:
+                total_items = int(value)
 
-        required_pages = total_pages if end_pages is None else 1
+        div, mod = divmod(total_items, self._conf_instance.page_size)
+        total_pages = div + (mod and 1)
+        pagination = total_pages if end_pages is None else end_pages
 
         base_url = self._conf_instance.base_url + '?' + urllib.urlencode(params)
-        div, mod = divmod(required_pages, self._conf_instance.page_size)
-        pagination = div + (mod and 1)
         return [base_url.replace(default_page, str(p)) for p in xrange(start_pages, pagination + 1)]
 
 

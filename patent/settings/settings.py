@@ -15,8 +15,11 @@ SPIDER_MODULES = ['patent.spiders']
 NEWSPIDER_MODULE = 'patent.spiders'
 
 DOWNLOAD_HANDLERS = {'s3': None, }
-DOWNLOAD_DELAY = 0.4
+DOWNLOAD_DELAY = 1
 DOWNLOAD_TIMEOUT = 20
+
+# 启动限速配置
+AUTOTHROTTLE_ENABLED = True
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -53,9 +56,11 @@ DOWNLOAD_TIMEOUT = 20
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'patent.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   # 'patent.middlewares.MyCustomDownloaderMiddleware': 543,
+   'patent.middlewares.downloader.autodelay.AutoDelayMiddleware': 542,
+   'patent.middlewares.downloader.useragent.UserAgentMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
