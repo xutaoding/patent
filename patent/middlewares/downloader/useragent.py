@@ -12,3 +12,7 @@ class UserAgentMiddleware(object):
 
         if user_agent:
             request.headers.setdefault('User-Agent', user_agent)
+            request.headers.setdefault('Host', 'epub.sipo.gov.cn')
+            request.headers.setdefault('Origin', 'http://epub.sipo.gov.cn')
+            request.headers.setdefault('Upgrade-Insecure-Requests', '1')
+            request.headers.setdefault('Referer', 'http://epub.sipo.gov.cn/gjcx.jsp')

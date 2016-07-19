@@ -4,6 +4,8 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+from datetime import datetime
+from datetime import datetime
 import pymongo
 from pymongo.errors import DuplicateKeyError
 
@@ -30,6 +32,8 @@ class PatentPipeline(BaseMixin):
 
     def insert2mongo(self, data, spider):
         try:
+            data.update(upt=datetime.now())
+            data.update(ct=datetime.now().strftime('%Y%m%d%H%M%S'))
             self.collection.insert(data)
         except Exception as e:
             spider.log('Insert Mongo error: typ <{}>, msg <msg>'.format(e.__class__, e))

@@ -20,7 +20,7 @@ class PreUrls(object):
         """
         params = {}
         total_items = 1
-        start_pages = start_pages or 1
+        start_pages = int(start_pages) if start_pages else 1
 
         default_page = 'page_now'
         url = self._conf_instance.get_start_qs()
@@ -37,7 +37,7 @@ class PreUrls(object):
 
         div, mod = divmod(total_items, self._conf_instance.page_size)
         total_pages = div + (mod and 1)
-        pagination = total_pages if end_pages is None else end_pages
+        pagination = total_pages if end_pages is None else int(end_pages)
 
         base_url = self._conf_instance.base_url + '?' + urllib.urlencode(params)
         return [base_url.replace(default_page, str(p)) for p in xrange(start_pages, pagination + 1)]
