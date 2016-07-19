@@ -1,0 +1,9 @@
+# Python vertsion: 2.7.x
+
+scrapy==1.0.5
+pymongo==3.2.2
+apscheduler==3.1.0
+scrapyd==1.1.0
+python-scrapyd-api==2.0.1
+supervisor==3.2.3
+pypinyin==0.12.1
