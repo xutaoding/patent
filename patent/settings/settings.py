@@ -15,7 +15,7 @@ SPIDER_MODULES = ['patent.spiders']
 NEWSPIDER_MODULE = 'patent.spiders'
 
 DOWNLOAD_HANDLERS = {'s3': None, }
-DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 5
 DOWNLOAD_TIMEOUT = 20
 
 # 启动限速配置
