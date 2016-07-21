@@ -11,7 +11,7 @@ class AutoDelayMiddleware(object):
         setattr(spider, 'req_count', req_count + 1)
 
         if req_count and req_count % 4 == 0:
-            time.sleep(randint(3, 8))
+            time.sleep(randint(2, 6))
 
 
 
