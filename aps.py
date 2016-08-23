@@ -43,7 +43,7 @@ def run_patent():
         time.sleep(60)
 
 
-# app.add_job(run_patent, trigger='cron', horu='9-18', minute='*/15')
-# app.start()
+app.add_job(run_patent, trigger='cron', horu='9-18', minute='*/15')
+app.start()
 
-run_patent()
+# run_patent()
