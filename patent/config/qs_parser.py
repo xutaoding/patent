@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 import urllib
-from datetime import date
+from datetime import date, timedelta
 
 import conf
 
@@ -44,7 +44,12 @@ class ConfPatent(object):
         key_regex = re.compile(r'\{(.*?)\}')
         kv_args = ['='.join(item) for item in self.rtype_conf.iteritems()]
         qs = '&'.join(kv_args)
-        default_kw = {'dt_start': '1949.10.01', 'total': '0', 'dt_end': date.today().strftime('%Y.%m.%d')}
+        # default_kw = {'dt_start': '1949.10.01', 'total': '0', 'dt_end': date.today().strftime('%Y.%m.%d')}
+        default_kw = {
+            'dt_start': (date.today() - timedelta(days=7)).strftime('%Y.%m.%d'),
+            'total': '0',
+            'dt_end': date.today().strftime('%Y.%m.%d')
+        }
 
         required_kw = {key: default_kw.get(key, '') for key in key_regex.findall(qs)}
         return self.base_url + '?' + self._urlencode(qs.format(**required_kw))
