@@ -9,7 +9,7 @@
 可以基于专利各种条件的选择(http://epub.sipo.gov.cn/gjcx.jsp)需要不同的值， 可根据此链接选择
 
 部署情况：
-
+-------
 l: 部署位置：192.168.205.207：/opt/scrapyer
 
 2：使用screen -ls(patent那个即是)
