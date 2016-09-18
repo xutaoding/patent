@@ -17,3 +17,5 @@ l: 部署位置：192.168.205.207：/opt/scrapyer
 3：定时调度程序位置：patent/aps.py(python patent/aps.py)
 
 4：抓取程序在：patent/patent目录下， 调度程序在patent/aps.py
+
+备注：具体问题以代码为准。
