@@ -2,7 +2,20 @@
 ----
 该任务主要抓取国家专利网站的的专利数据， 框架采用Scrapy, 数据库使用Mongo
 
-数据存储：192.168.100.20的py_crawl库 patent 表
+抓取来源
+----
+1：发明专利： http://epub.sipo.gov.cn/index.action
+
+2：发明授权： http://epub.sipo.gov.cn/index.action
+
+3：实用新型： http://epub.sipo.gov.cn/index.action
+
+4：外观设计： http://epub.sipo.gov.cn/index.action
+
+
+数据存储：
+--------
+192.168.100.20的py_crawl库 patent 表
 
 说明：
 ---
